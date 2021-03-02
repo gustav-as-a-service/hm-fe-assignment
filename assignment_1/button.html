@@ -13,6 +13,17 @@
         display: flex;
         align-items: center;
     }
+
+    .btn::before {
+        /* Creating label content */
+        content: "Delete";
+        font-size: 1em;
+        font-weight: bold;
+
+        /* Account for the un-symmetrical distance between elements */
+        margin-right: 0.3em;
+        margin-left: 0.4em;
+    }
 </style>
 <button class="btn"/>
 </html>
