@@ -1,4 +1,5 @@
 import React from "react";
+import {StarWarsImage} from "./atoms/StarWarsImage";
 
 export const App = () => {
 	return <div style={{
@@ -9,8 +10,12 @@ export const App = () => {
 		backgroundColor: "lightgrey",
 	}}>
 		<div style={{
+			display: "flex",
 			width: "800px",
+			alignItems: "center",
+			flexDirection: "column",
 		}}>
+			<StarWarsImage/>
 		</div>
 	</div>;
 };
