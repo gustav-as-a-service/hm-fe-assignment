@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useSearch as useSearchImport} from "../../../../../providers/SearchFormProvider/SearchFormProvider";
 import {api as apiImport} from "../../../../../api/api";
 
-type StarWarsCharacter = {
+export type StarWarsCharacter = {
   "name": string;
   "height": string;
   "mass": string;
