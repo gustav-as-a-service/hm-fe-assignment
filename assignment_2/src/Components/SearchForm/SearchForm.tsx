@@ -7,10 +7,12 @@ import {
 import {useSearch} from "../../providers/SearchFormProvider/SearchFormProvider";
 import {CharacterPresentation} from "./atoms/CharacterPresentation";
 import {Suggestions} from "./organisms/Suggestions/Suggestions";
+import { useSearchHistory } from "./hooks/useSearchHistory/useSearchHistory";
 
 export const SearchForm: React.FC = () => {
 	const {search} = useSearch();
 	const {searchResults, responseStatus} = useStarWarsSearch();
+	const {appendSearchItem} = useSearchHistory();
 	const [characterMatch, setCharacterMatch] = useState<StarWarsCharacter | undefined>(
 		undefined);
 
@@ -21,6 +23,7 @@ export const SearchForm: React.FC = () => {
 
 	const onSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
+		appendSearchItem(search);
 		if (searchResults) {
 			submitCharacter(searchResults[0]);
 		}

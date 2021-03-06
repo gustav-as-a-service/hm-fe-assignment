@@ -1,6 +1,7 @@
 import React from "react";
 import {StarWarsCharacter} from "./hooks/useStarWarsSearch";
 import {useSearch} from "../../../../providers/SearchFormProvider/SearchFormProvider";
+import {useSearchHistory} from "../../hooks/useSearchHistory/useSearchHistory";
 
 type SuggestionsProps = {
   searchResults?: StarWarsCharacter[]
@@ -8,6 +9,7 @@ type SuggestionsProps = {
 }
 
 export const Suggestions: React.FC<SuggestionsProps> = ({searchResults, errorStatusCode}: SuggestionsProps) => {
+	const {appendSearchItem} = useSearchHistory();
 	const {setSearch} = useSearch();
 
 	if (errorStatusCode) {
@@ -30,16 +32,17 @@ export const Suggestions: React.FC<SuggestionsProps> = ({searchResults, errorSta
 				<span>
         Are you looking for:
 				</span>
-				{searchResults.map(starWarsCharacter => {
+				{searchResults.map(({name}) => {
 					return (
 						<a role="option"
-							key={starWarsCharacter.name}
+							key={name}
 							style={{marginTop: "0.2em"}}
 							onClick={(e) => {
 								e.preventDefault();
-								setSearch(starWarsCharacter.name);
+								setSearch(name);
+								appendSearchItem(name);
 							}}>
-							{starWarsCharacter.name}
+							{name}
 						</a>
 					);
 				})}
