@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Input} from "./organisms/Input/Input";
 import {
 	StarWarsCharacter,
@@ -19,6 +19,10 @@ export const SearchForm: React.FC = () => {
 			setCharacterMatch(searchResults[0]);
 		}
 	};
+
+	useEffect(() => {
+		setCharacterMatch(undefined);
+	}, [search]);
 
 	return (
 		<form style={{display: "flex", flexDirection: "column", width: "80%"}}
