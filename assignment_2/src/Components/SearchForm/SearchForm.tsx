@@ -41,8 +41,11 @@ export const SearchForm: React.FC = () => {
 		<form style={{display: "flex", flexDirection: "column", width: "80%"}}
 			onSubmit={onSubmit}>
 			<Input/>
-			{!characterMatch && <Suggestions searchResults={searchResults} errorStatusCode={responseStatus}/>}
-			{characterMatch && <CharacterPresentation starWarsCharacter={characterMatch} search={search}/>}
+			<div style={{height:"180px", overflow:"auto"}}>
+				{!characterMatch && <Suggestions searchResults={searchResults} errorStatusCode={responseStatus}/>}
+				{characterMatch && <CharacterPresentation starWarsCharacter={characterMatch} search={search}/>}
+			</div>
+
 		</form>
 	);
 };
