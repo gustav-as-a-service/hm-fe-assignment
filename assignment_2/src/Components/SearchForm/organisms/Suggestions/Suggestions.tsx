@@ -19,14 +19,13 @@ export const Suggestions: React.FC<SuggestionsProps> = ({searchResults, errorSta
 	}
 
 	return (
-		<div>
+		<div style={{height:"100%"}}>
 			<div style={{
 				display: "flex",
 				flexDirection: "column",
 				backgroundColor: "white",
 				borderRadius: "0.5em",
 				padding: "0.5em",
-				marginTop: "0.5em",
 			}}>
 				<span>
         Are you looking for:

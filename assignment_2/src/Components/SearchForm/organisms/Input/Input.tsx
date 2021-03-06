@@ -20,6 +20,7 @@ export const Input: React.FC = () => {
 				padding: "0.5em",
 				borderRadius: "0.5em",
 				border: 0,
+				marginBottom:"0.5em"
 			}}/>
 	);
 };
