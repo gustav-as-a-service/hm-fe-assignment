@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {Input} from "./organisms/Input/Input";
 import {
 	StarWarsCharacter,
@@ -6,6 +6,7 @@ import {
 } from "./organisms/Suggestions/hooks/useStarWarsSearch";
 import {useSearch} from "../../providers/SearchFormProvider/SearchFormProvider";
 import {CharacterPresentation} from "./atoms/CharacterPresentation";
+import {Suggestions} from "./organisms/Suggestions/Suggestions";
 
 export const SearchForm: React.FC = () => {
 	const {search} = useSearch();
@@ -13,21 +14,34 @@ export const SearchForm: React.FC = () => {
 	const [characterMatch, setCharacterMatch] = useState<StarWarsCharacter | undefined>(
 		undefined);
 
+	const submitCharacter = useCallback(
+		(starWarsCharacter: StarWarsCharacter) => {
+			setCharacterMatch(starWarsCharacter);
+		}, [setCharacterMatch]);
+
 	const onSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (searchResults) {
-			setCharacterMatch(searchResults[0]);
+			submitCharacter(searchResults[0]);
 		}
 	};
 
 	useEffect(() => {
-		setCharacterMatch(undefined);
-	}, [search]);
+		// When we are in no doubt what they are looking for then we show it
+		// This will pick up suggestion option presses
+		const characterMatch = searchResults?.find(searchResult => searchResult.name === search);
+		if (characterMatch) {
+			setCharacterMatch(characterMatch);
+		} else {
+			setCharacterMatch(undefined);
+		}
+	}, [search, characterMatch]);
 
 	return (
 		<form style={{display: "flex", flexDirection: "column", width: "80%"}}
 			onSubmit={onSubmit}>
 			<Input/>
+			{!characterMatch && <Suggestions searchResults={searchResults} errorStatusCode={responseStatus}/>}
 			{characterMatch && <CharacterPresentation starWarsCharacter={characterMatch} search={search}/>}
 		</form>
 	);
