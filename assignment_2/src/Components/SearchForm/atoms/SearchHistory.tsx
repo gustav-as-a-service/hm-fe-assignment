@@ -26,7 +26,13 @@ export const SearchHistory: React.FC = () => {
 							{searchHistoryItem.search}<br/>
 							<i>{new Date(searchHistoryItem.date).toLocaleDateString("sv-SE")}</i>
 						</div>
-						<button onClick={() => deleteSearchItem(index)} type="button">{"\u00D7"}</button>
+						<button onClick={() => deleteSearchItem(index)} type="button" style={{
+							backgroundColor: "unset",
+							border: "unset",
+							cursor:"pointer",
+							padding:"0",
+							fontSize: "2em",
+						}}>{"\u00D7"}</button>
 					</div>
 				);
 			})}
