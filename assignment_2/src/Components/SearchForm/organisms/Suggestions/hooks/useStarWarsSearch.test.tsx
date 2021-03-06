@@ -58,7 +58,7 @@ describe("useStarWarsSearch", () => {
 		it("should poll API", () => {
 			const props = {
 				api: apiMock({status: 200, json: () => [{name: "Yoda"}]}),
-				useSearch: useSearchMock("Yo"),
+				useSearch: useSearchMock("Y"),
 			} as any;
 
 			const MockComponent = () => {
@@ -77,7 +77,7 @@ describe("useStarWarsSearch", () => {
 						return {results: [{name: "Yoda"}]};
 					},
 				}),
-				useSearch: useSearchMock("Yoda"),
+				useSearch: useSearchMock("Yod"),
 			} as any;
 
 			const MockComponent = () => {
@@ -102,7 +102,7 @@ describe("useStarWarsSearch", () => {
 				api: apiMock({
 					status: 404,
 				}),
-				useSearch: useSearchMock("Yoda"),
+				useSearch: useSearchMock("Yod"),
 			} as any;
 
 			const MockComponent = () => {
