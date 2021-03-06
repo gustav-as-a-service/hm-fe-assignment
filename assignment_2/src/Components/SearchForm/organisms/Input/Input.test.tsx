@@ -1,14 +1,14 @@
 import React from "react";
 import {Input as InputImport} from "./Input";
 import {fireEvent, render} from "@testing-library/react";
-import {SearchProvider} from "../SearchFormProvider/SearchProvider";
+import {SearchFormProvider} from "../../../../providers/SearchFormProvider/SearchFormProvider";
 
 export function withSearchProvider<P>(
 	ComponentToWrap: React.ComponentType<P>) {
 	return (props: P) => (
-		<SearchProvider>
+		<SearchFormProvider>
 			<ComponentToWrap {...props} />
-		</SearchProvider>
+		</SearchFormProvider>
 	);
 }
 

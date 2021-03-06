@@ -1,6 +1,7 @@
 import React from "react";
 import {StarWarsImage} from "./atoms/StarWarsImage";
 import {SearchForm} from "./Components/SearchForm/SearchForm";
+import {SearchFormProvider} from "./providers/SearchFormProvider/SearchFormProvider";
 
 export const App = () => {
 	return <div style={{
@@ -17,7 +18,9 @@ export const App = () => {
 			flexDirection: "column",
 		}}>
 			<StarWarsImage/>
-			<SearchForm/>
+			<SearchFormProvider>
+				<SearchForm/>
+			</SearchFormProvider>
 		</div>
 	</div>;
 };

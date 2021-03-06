@@ -15,7 +15,7 @@ const SearchContext = React.createContext<SearchState & SearchAction>(
 
 // Ignore this rule as we know we have children
 // eslint-disable-next-line react/prop-types
-export const SearchProvider: React.FC = ({children}) => {
+export const SearchFormProvider: React.FC = ({children}) => {
 	const [search, setSearch] = useState("");
 
 	return (

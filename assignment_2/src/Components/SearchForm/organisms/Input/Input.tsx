@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useSearch} from "../SearchFormProvider/SearchProvider";
+import {useSearch} from "../../../../providers/SearchFormProvider/SearchFormProvider";
 
 export const Input: React.FC = () => {
 	const {search, setSearch} = useSearch();
