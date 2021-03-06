@@ -16,7 +16,6 @@ export const Input: React.FC = () => {
 			onChange={onChange}
 			value={search}
 			style={{
-				width: "80%",
 				height: "3em",
 				padding: "0.5em",
 				borderRadius: "0.5em",
