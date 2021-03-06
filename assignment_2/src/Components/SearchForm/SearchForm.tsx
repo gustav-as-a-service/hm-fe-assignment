@@ -31,7 +31,7 @@ export const SearchForm: React.FC = () => {
 		// This will pick up suggestion option presses
 		const characterMatch = searchResults?.find(searchResult => searchResult.name === search);
 		if (characterMatch) {
-			setCharacterMatch(characterMatch);
+			submitCharacter(characterMatch);
 		} else {
 			setCharacterMatch(undefined);
 		}
