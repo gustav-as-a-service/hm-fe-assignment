@@ -21,7 +21,7 @@ export const Suggestions: React.FC<SuggestionsProps> = ({searchResults, errorSta
 	}
 
 	return (
-		<div style={{height:"100%"}}>
+		<div style={{height: "100%"}}>
 			<div style={{
 				display: "flex",
 				flexDirection: "column",
@@ -34,16 +34,23 @@ export const Suggestions: React.FC<SuggestionsProps> = ({searchResults, errorSta
 				</span>
 				{searchResults.map(({name}) => {
 					return (
-						<a role="option"
+						<button role="option"
 							key={name}
-							style={{marginTop: "0.2em"}}
+							style={{
+								marginTop: "0.2em",
+								textAlign: "left",
+								backgroundColor: "unset",
+								border: "unset",
+								padding: "0",
+								fontSize: "1em",
+							}}
 							onClick={(e) => {
 								e.preventDefault();
 								setSearch(name);
 								appendSearchItem(name);
 							}}>
 							{name}
-						</a>
+						</button>
 					);
 				})}
 			</div>
