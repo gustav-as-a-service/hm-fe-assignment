@@ -8,6 +8,7 @@ import {useSearch} from "../../providers/SearchFormProvider/SearchFormProvider";
 import {CharacterPresentation} from "./atoms/CharacterPresentation";
 import {Suggestions} from "./organisms/Suggestions/Suggestions";
 import { useSearchHistory } from "./hooks/useSearchHistory/useSearchHistory";
+import {SearchHistory} from "./atoms/SearchHistory";
 
 export const SearchForm: React.FC = () => {
 	const {search} = useSearch();
@@ -48,7 +49,7 @@ export const SearchForm: React.FC = () => {
 				{!characterMatch && <Suggestions searchResults={searchResults} errorStatusCode={responseStatus}/>}
 				{characterMatch && <CharacterPresentation starWarsCharacter={characterMatch} search={search}/>}
 			</div>
-
+			<SearchHistory/>
 		</form>
 	);
 };
