@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .btn {
+        /* Create a canvas for us to play with */
+        border: 1px solid gray;
+        padding: 0.425em 0;
+
+        /* Add gradient background effect */
+        background: linear-gradient(1.57rad, #f3af5d, #f19639);
+
+        /* Vertically center content inside the canvas */
+        display: flex;
+        align-items: center;
+    }
+
+    .btn::before {
+        /* Creating label content */
+        content: "Delete";
+        font-size: 1em;
+        font-weight: bold;
+
+        /* Account for the un-symmetrical distance between elements */
+        margin-right: 0.3em;
+        margin-left: 0.4em;
+    }
+
+    .btn::after {
+        /* Creating x-sign using unicode multiplication */
+        content: "\00d7";
+        font-size: 2em;
+        font-weight: 100;
+        line-height: 0;
+
+        /* Center the x */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+
+        /* Create the wrapping circle */
+        border-radius: 50%;
+        background-color: #fafafa;
+        width: 1.3em;
+        height: 1.3em;
+
+        /* Account for the un-symmetrical distance between elements */
+        margin-right: 0.2em;
+    }
+</style>
+<button class="btn"/>
+</html>
