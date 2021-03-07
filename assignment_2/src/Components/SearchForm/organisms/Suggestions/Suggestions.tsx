@@ -23,8 +23,16 @@ export const Suggestions: React.FC<SuggestionsProps> = ({
     );
   }
 
-  if (!searchResults || searchResults.length === 0) {
+  if (!searchResults) {
     return <span> Type to search through all galaxies out there! </span>;
+  }
+
+  if (searchResults.length === 0) {
+    return (
+      <span style={{color:"red"}}>
+        Needless to say, what you are looking for those not exist in the known universe!
+      </span>
+    );
   }
 
   return (
