@@ -1,3 +1,6 @@
+# Note that the project in part 2 was originally written using TypeScript out of personal preference; I later migrated it to JS to match the criterias–hence there are two assignment_2, look at whichever you like! 🚀
+
+
 # WORK TASK #
 
 **Please read this document thoroughly** and plan your work accordingly.
