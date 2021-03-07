@@ -6,7 +6,6 @@ import { SearchFormProvider } from './providers/SearchFormProvider/SearchFormPro
 export const App = () => (
   <div style={{
     display: 'flex',
-    height: '100vh',
     width: '100vw',
     justifyContent: 'center',
     backgroundColor: 'lightgrey',
